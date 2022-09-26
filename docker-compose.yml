@@ -1,0 +1,24 @@
+version: "3"
+services: 
+  springboot-app:
+   # container_name: spring-app
+    image: fresh_cart_backend
+    restart: always
+    build: .
+    ports:
+      - 9090:8080 
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+  mysqldb: 
+    container_name: mysqldb
+    image: mysql
+    environment:
+      MYSQL_DATABASE: fresh_cart
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3307:3306
+  
+      
